@@ -43,7 +43,7 @@ class ControllerListarTarefa():
         controllerLista = ToDO.ListarTarefa()
         cont = 1
         for tarefas in controllerLista:
-            print(f"{cont} - {tarefas}")
+            print(f"{cont} - {tarefas.strip()}")
             cont+=1
 
 

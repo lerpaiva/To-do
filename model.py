@@ -1,17 +1,18 @@
+from dao import*
 class ToDo():
-    def __init__(self):
-        self.lista = []
+
 
     def AdicionarTarefa(self, tarefa):
-        self.lista.append(tarefa)
+        DaoAdicionarTarefa.adicionarTarefa(tarefa)
         return True
 
-    def ExcluirTarefa(self, excluir):
-        self.lista.pop(excluir)
-        return True
+    #def ExcluirTarefa(self, excluir):
+     #   self.lista.pop(excluir)
+     #   return True
 
     def ListarTarefa(self):
-        return self.lista
+        return DaoListarTarefa.listarTarefa()
+    
 
 
 ToDO = ToDo()
