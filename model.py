@@ -3,8 +3,8 @@ class ToDo():
 
 
     def AdicionarTarefa(self, tarefa):
-        DaoAdicionarTarefa.adicionarTarefa(tarefa)
-        return True
+        add = DaoAdicionarTarefa()
+        return add.adicionarTarefa(tarefa)
 
     #def ExcluirTarefa(self, excluir):
      #   self.lista.pop(excluir)

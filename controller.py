@@ -40,11 +40,15 @@ class ControllerExcluirTarefa():
 
 class ControllerListarTarefa():
     def __init__(self):
+
         controllerLista = ToDO.ListarTarefa()
-        cont = 1
+        cont = -1
         for tarefas in controllerLista:
-            print(f"{cont} - {tarefas.strip()}")
             cont+=1
+            if cont>=1:
+                tarefas = tarefas[7:-1]
+                print(f"{cont} - {tarefas.strip()}")
+            
 
 
 
