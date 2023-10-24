@@ -1,24 +1,38 @@
 from model import*
+from random import randint
 
 class ControllerAdicionarTarefa():
     def __init__(self, tarefa):
-        leave = 0
-        while leave == 0:
             try:
                 self.tarefa = tarefa
-                if self.tarefa  == "":
-                    print("Informe uma tarefa válida")
-                    leave = 1
+                id = randint(1000,9999)
+                cont=-1
+                if len(ToDO.ListarTarefa()) > 1:
+                    for tarefas in ToDO.ListarTarefa():
+                        cont+=1
+                        if cont >=1:
+                            tarefas = tarefas[:4]
+                            tarefas = int(tarefas)
+                            if id != tarefas:
+                                if self.tarefa == "":
+                                    print("Tarefa inválida")
+                                else:
+                                    if ToDO.AdicionarTarefa(self.tarefa, id):
+                                        print("Tarefa adicionada")
+                                        break
+                                    else:
+                                        print("Tarefa não adicionada")
+                                        break
                 else:
-                    if ToDO.AdicionarTarefa(self.tarefa) == True:
-                            print("Tarefa adicionada")
-                            leave =1
+                    if self.tarefa == "":
+                        print("Tarefa inválida")
                     else:
-                        print("Algum problema foi encontrado")
-                        leave = 1
+                        if ToDO.AdicionarTarefa(self.tarefa, id) == True:
+                            print("Tarefa adicionada")
+                        else:
+                            print("Tarefa não adicionada")
             except Exception:
-                    print("Valor inválido")
-                    leave =1
+                print("Inválido")
             
 
 class ControllerExcluirTarefa():

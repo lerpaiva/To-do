@@ -1,19 +1,12 @@
-from random import randint
-arquivo = "To-Do.txt"
-ids = []
 
+arquivo = "To-Do.txt"
     
 class DaoAdicionarTarefa:
-    def adicionarTarefa(self, tarefa):
-        self.id = randint(1000, 9999)
-        ids.append(self.id)
+
+    def adicionarTarefa(self, tarefa, x):
         with open(arquivo,"a") as arq:
-            id = randint(1000, 9999)
-            if id in ids:
-                return False
-            else:
-                arq.write(f"{id} \t {tarefa}\n")
-                return True
+            arq.write(f"{x} \t {tarefa}\n")
+            return True
        
 class DaoListarTarefa:
     def listarTarefa():
