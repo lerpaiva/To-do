@@ -11,7 +11,8 @@ class ToDo():
      #   return True
 
     def ListarTarefa(self):
-        return DaoListarTarefa.listarTarefa()
+        listar = DaoListarTarefa()
+        return listar.listarTarefa()
     
 
 
