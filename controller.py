@@ -1,6 +1,6 @@
 from model import*
 from random import randint
-
+identificador = {}
 class ControllerAdicionarTarefa():
     def __init__(self, tarefa):
             try:
@@ -21,6 +21,7 @@ class ControllerAdicionarTarefa():
                                 else:
                                     if ToDO.AdicionarTarefa(self.tarefa, id, status):
                                         print("Tarefa adicionada")
+                                        identificador[cont]=[self.tarefa]
                                         break
                                     else:
                                         print("Tarefa não adicionada")
@@ -56,30 +57,25 @@ class ControllerExcluirTarefa():
 
 class ControllerListarTarefa():
     def __init__(self):
-
-        controllerLista = ToDO.ListarTarefa()
-        cont=-1
-        for tarefas in controllerLista:
-            cont+=1
-            tarefax = tarefas.split('|', maxsplit=3)
-            tarefaz = tarefax[0]
-            if cont>=1:
-                if "A" in tarefaz:
-                    tarefas = tarefas[12:-1]
-                    print(f"{cont} - {tarefas.strip()}")
+        cont= -1
+        if len(ToDO.ListarTarefa())>1:
+            for tarefas in ToDO.ListarTarefa():
+                tarefax = tarefas.split('|', maxsplit=3)
+                cont += 1
+                if cont >= 1:
+                    tarefaz = tarefax[0]
+                    tarefarr = tarefax[2]
+                    tarefarr = tarefarr[1:]
+                    if "A" in tarefaz:
+                        print(f"{cont} - {tarefarr}")
             
 class ControllerAlterarTarefa():
     def __init__(self, taref, novatarefa):
-        self.tarefa = taref
-        for self.taref in ToDO.ListarTarefa():
-            tarefaa = self.taref.split('|',maxsplit=3)
-            tarefaz = tarefaa[2]
-            if novatarefa =="":
-                print("Inválido")
-                return False
-            else:
-                tarefaz = DaoAlterarTarefa(novatarefa)
-
+        self.newtarefa = novatarefa
+        self.tarefaId = taref
+        for self.tarefaId in identificador:
+            pass
+    
 
 
 class ControllerConcluirTarefa():
@@ -87,5 +83,16 @@ class ControllerConcluirTarefa():
         pass
 class ControllerTarefasConcluidas():
     def __init__(self):
-        pass
+        cont= -1
+        if len(ToDO.ListarTarefa())>1:
+            for tarefas in ToDO.ListarTarefa():
+                tarefax = tarefas.split('|', maxsplit=3)
+                cont += 1
+                if cont >= 1:
+                    tarefaz = tarefax[0]
+                    tarefarr = tarefax[2]
+                    tarefarr = tarefarr[1:]
+                    if "C" in tarefaz:
+                        print(f"{cont} - {tarefarr}")
+            
 

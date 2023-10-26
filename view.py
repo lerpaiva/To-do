@@ -3,8 +3,6 @@ import os
 sair = 0
 while sair == 0:
    
-
-
    print("SOFTWARE LISTA TO-DO")
    print("[1] Adicionar tarefas \n[2] Listar tarefas \n[3] Alterar tarefa \n[4] Concluir Tarefa \n[5] Listar tarefas concluídas \n[6] Excluir tarefas \n[7] Sair")
    print("")
@@ -30,16 +28,31 @@ while sair == 0:
           ListarTarefa = ControllerListarTarefa()
           qual = input("Digite o índice da tarefa que deseja alterar: ")
           novaTarefa = input("Nova tarefa: ")
-          alterarTarefa = ControllerListarTarefa(qual, novaTarefa)
+          alterarTarefa = ControllerAlterarTarefa(qual, novaTarefa)
+          os.system("pause")
+        case "4":
+          os.system("cls")
+          print("--CONCLUIR TAREFAS--")
+          print("")
+          ListarTarefa = ControllerListarTarefa()
+          print("Digite o índice da tarefa que deseja marcar como concluída")
+          qual = input(">> ")
+          ConcluirTarefa = ControllerConcluirTarefa(qual)
+          os.system("pause")
+        case "5":
+          os.system("cls")
+          print("--TAREFAS CONCLUÍDAS--")
+          print("")
+          ListarTarefa = ControllerTarefasConcluidas()
           os.system("pause")
         case "6":
          os.system("cls")
          print("--EXCLUIR TAREFA--")
          print("")
          ListarTarefa = ControllerListarTarefa()
-         excluir = input("Qual tarefa deseja excluir (índice): ")
-         excluirTarefa = ControllerExcluirTarefa(excluir)
-         listarTarefa = ControllerListarTarefa()
+         print("Digite o índice da tarefa que deseja excluir")
+         qual = input(">> ")
+         ConcluirTarefa = ControllerExcluirTarefa(qual)
          os.system("pause")
 
         case "7":
