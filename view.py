@@ -3,8 +3,10 @@ import os
 sair = 0
 while sair == 0:
    
+
+
    print("SOFTWARE LISTA TO-DO")
-   print("[1] Adicionar tarefas \n[2] Listar tarefas \n[3] Excluir \n[4] Sair")
+   print("[1] Adicionar tarefas \n[2] Listar tarefas \n[3] Alterar tarefa \n[4] Concluir Tarefa \n[5] Listar tarefas concluídas \n[6] Excluir tarefas \n[7] Sair")
    print("")
    menu = input("O que deseja fazer>> ")
    match menu:
@@ -22,6 +24,15 @@ while sair == 0:
          ListarTarefa = ControllerListarTarefa()
          os.system("pause")
         case "3":
+          os.system("cls")
+          print("--ALTERAR TAREFAS--")
+          print("")
+          ListarTarefa = ControllerListarTarefa()
+          qual = input("Digite o índice da tarefa que deseja alterar: ")
+          novaTarefa = input("Nova tarefa: ")
+          alterarTarefa = ControllerListarTarefa(qual, novaTarefa)
+          os.system("pause")
+        case "6":
          os.system("cls")
          print("--EXCLUIR TAREFA--")
          print("")
@@ -31,7 +42,7 @@ while sair == 0:
          listarTarefa = ControllerListarTarefa()
          os.system("pause")
 
-        case "4":
+        case "7":
          sair = 1
         case _:
          os.system("cls")

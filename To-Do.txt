@@ -1,2 +1,6 @@
- ID   |   TAREFAS 
-6666 	 cinema
+STATUS|  ID  |  TAREFAS
+	A |	3956 |	lavar
+	A |	5672 |	correr
+	A |	4604 |	pescar
+	A |	4013 |	pegar
+	A |	4930 |	aaa
