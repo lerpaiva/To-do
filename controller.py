@@ -1,6 +1,6 @@
 from model import*
 from random import randint
-identificador = {}
+
 class ControllerAdicionarTarefa():
     def __init__(self, tarefa):
             try:
@@ -21,7 +21,6 @@ class ControllerAdicionarTarefa():
                                 else:
                                     if ToDO.AdicionarTarefa(self.tarefa, id, status):
                                         print("Tarefa adicionada")
-                                        identificador[cont]=[self.tarefa]
                                         break
                                     else:
                                         print("Tarefa não adicionada")
@@ -38,23 +37,6 @@ class ControllerAdicionarTarefa():
                 print("Inválido")
             
 
-class ControllerExcluirTarefa():
-    def __init__(self,excluir):
-        leave = 0
-        while leave ==0:
-            try:
-                x = int (excluir)
-                self.excluir = x-1
-                if ToDO.ExcluirTarefa(self.excluir) == True:
-                    print("Tarefa excluída")
-                    leave  = 1
-                else:
-                    print("Algum problema foi encontrado")
-                    
-            except Exception:
-                print("Valor inválido")
-                excluir = input("Qual tarefa deseja excluir? ")
-
 class ControllerListarTarefa():
     def __init__(self):
         cont= -1
@@ -70,17 +52,36 @@ class ControllerListarTarefa():
                         print(f"{cont} - {tarefarr}")
             
 class ControllerAlterarTarefa():
-    def __init__(self, taref, novatarefa):
-        self.newtarefa = novatarefa
-        self.tarefaId = taref
-        for self.tarefaId in identificador:
-            pass
-    
+    def __init__(self, indice, novatarefa):
+        try:
+            if novatarefa =="":
+                print("Inválido")
+            else:
+                Lista_id = []
+                cont = 0
+                for linha in ToDO.ListarTarefa():
+                    cont +=1 
+                    letra = linha[1:2]
+                    if letra == "A":
+                        lista = linha.split('|', 4)
+                        id = lista[1]
+                        id = int(id)
+                        Lista_id.append(id)
+                    
+                for linha in ToDO.ListarTarefa():
+                    tarefa_A = linha[9:-1]
+                    lista = linha.split('|', 4)
+                    id = lista[1]
+                    id = int(id)
+                    if id == Lista_id[indice]:
+                        ToDO.AlterarTarefa(tarefa_A, novatarefa)
+                        break
 
+        except Exception:
+            print("Inválido")
 
-class ControllerConcluirTarefa():
-    def __init__(self):
-        pass
+        
+
 class ControllerTarefasConcluidas():
     def __init__(self):
         cont= -1
