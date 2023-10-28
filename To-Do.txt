@@ -2,6 +2,8 @@ STATUS|  ID  |  TAREFAS
 	A |	3956 |	lavar
 	A |	5672 |	correr
 	A |	4604 |	pescar
-	C |	4013 |	pegar
-	C |	4930 |	aaa
-	C |	2654 |	ler
+	A |	4013 |	pegar
+	A |	4930 |	aaa
+	A |	2654 |	ler
+	A |	3745 |	regar
+	A |	7304 |	colar

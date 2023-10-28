@@ -50,6 +50,7 @@ class ControllerListarTarefa():
                     tarefarr = tarefarr[1:]
                     if "A" in tarefaz:
                         print(f"{cont} - {tarefarr}")
+                    
             
 class ControllerAlterarTarefa():
     def __init__(self, indice, novatarefa):
@@ -61,16 +62,16 @@ class ControllerAlterarTarefa():
                 cont = 0
                 for linha in ToDO.ListarTarefa():
                     cont +=1 
-                    letra = linha[1:2]
+                    linha = linha('|', 3)
+                    letra = linha[0]
                     if letra == "A":
-                        lista = linha.split('|', 4)
                         id = lista[1]
                         id = int(id)
                         Lista_id.append(id)
                     
                 for linha in ToDO.ListarTarefa():
-                    tarefa_A = linha[9:-1]
-                    lista = linha.split('|', 4)
+                    lista = linha.split('|', 3)
+                    tarefa_A = lista[2]
                     id = lista[1]
                     id = int(id)
                     if id == Lista_id[indice]:
@@ -79,6 +80,9 @@ class ControllerAlterarTarefa():
 
         except Exception:
             print("Inválido")
+
+
+
 
         
 
@@ -95,5 +99,9 @@ class ControllerTarefasConcluidas():
                     tarefarr = tarefarr[1:]
                     if "C" in tarefaz:
                         print(f"{cont} - {tarefarr}")
+                    else:
+                        return "Inválido"
+                else:
+                    return "Inválido"
             
 

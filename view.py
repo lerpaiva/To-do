@@ -3,6 +3,7 @@ import os
 sair = 0
 while sair == 0:
    
+
    print("SOFTWARE LISTA TO-DO")
    print("[1] Adicionar tarefas \n[2] Listar tarefas \n[3] Alterar tarefa \n[4] Concluir Tarefa \n[5] Listar tarefas concluídas \n[6] Excluir tarefas \n[7] Sair")
    print("")
@@ -37,7 +38,7 @@ while sair == 0:
          ListarTarefa = ControllerListarTarefa()
          print("Digite o índice da tarefa que deseja marcar como concluída")
          qual = input(">> ")
-         ConcluirTarefa = ControllerConcluirTarefa(qual)
+         ##ConcluirTarefa = ControllerConcluirTarefa(qual)
          os.system("pause")
         case "5":
          os.system("cls")
@@ -52,7 +53,7 @@ while sair == 0:
          ListarTarefa = ControllerListarTarefa()
          print("Digite o índice da tarefa que deseja excluir")
          qual = input(">> ")
-         ConcluirTarefa = ControllerExcluirTarefa(qual)
+         #ConcluirTarefa = ControllerExcluirTarefa(qual)
          os.system("pause")
 
         case "7":
