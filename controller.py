@@ -50,6 +50,8 @@ class ControllerListarTarefa():
                     tarefarr = tarefarr[1:]
                     if "A" in tarefaz:
                         print(f"{cont} - {tarefarr}")
+                    else:
+                        cont-=1
                     
             
 class ControllerAlterarTarefa():
@@ -100,8 +102,7 @@ class ControllerTarefasConcluidas():
                     if "C" in tarefaz:
                         print(f"{cont} - {tarefarr}")
                     else:
-                        return "Inválido"
-                else:
-                    return "Inválido"
+                        cont -=1
+
             
 

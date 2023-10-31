@@ -3,7 +3,8 @@ STATUS|  ID  |  TAREFAS
 	A |	5672 |	correr
 	A |	4604 |	pescar
 	A |	4013 |	pegar
-	A |	4930 |	aaa
+	C |	4930 |	aaa
 	A |	2654 |	ler
 	A |	3745 |	regar
-	A |	7304 |	colar
+	C |	7304 |	colar
+	A |	8169 |	cantar
