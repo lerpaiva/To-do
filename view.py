@@ -9,6 +9,7 @@ while sair == 0:
    print("")
    menu = input("O que deseja fazer>> ")
    match menu:
+     
         case "1":
          os.system("cls")
          print("--ADICIONAR TAREFA--")
@@ -16,12 +17,14 @@ while sair == 0:
          tarefa = input("Adicione uma tarefa: ")
          adicionarTarefa = ControllerAdicionarTarefa(tarefa)
          os.system("pause")
+
         case "2":
          os.system("cls")
          print("--LISTA DE TAREFAS--")
          print("")
          ListarTarefa = ControllerListarTarefa()
          os.system("pause")
+
         case "3":
          os.system("cls")
          print("--ALTERAR TAREFAS--")
@@ -29,8 +32,10 @@ while sair == 0:
          ListarTarefa = ControllerListarTarefa()
          qual = input("Digite o índice da tarefa que deseja alterar: ")
          novaTarefa = input("Nova tarefa: ")
+
          alterarTarefa = ControllerAlterarTarefa(qual, novaTarefa)
          os.system("pause")
+
         case "4":
          os.system("cls")
          print("--CONCLUIR TAREFAS--")
@@ -40,12 +45,14 @@ while sair == 0:
          qual = input(">> ")
          ##ConcluirTarefa = ControllerConcluirTarefa(qual)
          os.system("pause")
+
         case "5":
          os.system("cls")
          print("--TAREFAS CONCLUÍDAS--")
          print("")
          ListarTarefa = ControllerTarefasConcluidas()
          os.system("pause")
+
         case "6":
          os.system("cls")
          print("--EXCLUIR TAREFA--")
@@ -58,6 +65,7 @@ while sair == 0:
 
         case "7":
          sair = 1
+         print("Saindo do software..")
         case _:
          os.system("cls")
          print("Opção inválida")

@@ -7,14 +7,14 @@ class ToDo():
         return add.adicionarTarefa(tarefa, x, status)
 
     def ExcluirTarefa(self, excluir):
-        exclude = DaoExcluirTarefa()
-        return exclude.excluirTarefa(excluir)
-
+        #exclude = DaoExcluirTarefa()
+        #return exclude.excluirTarefa(excluir)
+        pass
     def ListarTarefa(self):
         return DaoListarTarefa.listarTarefa()
     
     def AlterarTarefa(self, tarefa):
-        alt = DaoAlterarTarefa()
+        alt = DaoAlterarTarefas()
         return alt.alterarTarefa(tarefa)
 
 

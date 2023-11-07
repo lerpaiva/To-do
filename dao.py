@@ -13,3 +13,11 @@ class DaoListarTarefa:
             linhas = arq.readlines()
         return linhas
             
+class DaoAlterarTarefas:
+    def alterarTarefa(self, antes, att):
+        with open(arquivo, "r") as arquivo:
+            arq = arquivo.read()
+
+        tudoAtt = arq.replace(antes, att)
+        with open(arquivo, "w") as arqui2:
+            arqui2.write(tudoAtt)

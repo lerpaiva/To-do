@@ -1,4 +1,4 @@
-from model import*
+from model import *
 from random import randint
 
 class ControllerAdicionarTarefa():
@@ -16,7 +16,7 @@ class ControllerAdicionarTarefa():
                             tarf =tarefas[1]
                             tarf = int(tarf)
                             if id != tarefas:
-                                if self.tarefa == "":
+                                if self.tarefa == "" or self.tarefa==" ":
                                     print("Tarefa inválida")
                                 else:
                                     if ToDO.AdicionarTarefa(self.tarefa, id, status):
@@ -26,7 +26,7 @@ class ControllerAdicionarTarefa():
                                         print("Tarefa não adicionada")
                                         break
                 else:
-                    if self.tarefa == "":
+                    if self.tarefa == "" or self.tarefa == " ":
                         print("Tarefa inválida")
                     else:
                         if ToDO.AdicionarTarefa(self.tarefa, id, status) == True:
@@ -57,32 +57,90 @@ class ControllerListarTarefa():
 class ControllerAlterarTarefa():
     def __init__(self, indice, novatarefa):
         try:
-            if novatarefa =="":
+            if novatarefa =="" or novatarefa == " ":
                 print("Inválido")
             else:
+                cont=0
                 Lista_id = []
-                cont = 0
                 for linha in ToDO.ListarTarefa():
-                    cont +=1 
-                    linha = linha('|', 3)
-                    letra = linha[0]
-                    if letra == "A":
-                        id = lista[1]
-                        id = int(id)
-                        Lista_id.append(id)
+                    cont+=1
+                    if cont > 0:
+
+                        linhar = linha('|', 3)
+                        letra = linhar[0]
+                        if letra == "\tA":
+                            id = lista[1]
+                            id = int(id)
+                            Lista_id.append(id)
                     
                 for linha in ToDO.ListarTarefa():
                     lista = linha.split('|', 3)
                     tarefa_A = lista[2]
                     id = lista[1]
+                    letrinha = lista[0]
                     id = int(id)
                     if id == Lista_id[indice]:
-                        ToDO.AlterarTarefa(tarefa_A, novatarefa)
-                        break
+                        if letrinha == "\tA":
+                            novatarf = (f"\t{letrinha} |\t{id} |\t{novatarefa}\n")
+                            alterando = ToDO.AlterarTarefa(tarefa_A, novatarf)
+                            if alterando == True:
+                                print("Tarefa alterada com sucesso!")
+                                break
+                            else:
+                                print("Alteração inválida")
+                        else: 
+                            break
+                    else:
+                        print("Inválido")
 
-        except Exception:
-            print("Inválido")
 
+
+        except Exception as erro:
+            print(erro)
+
+class ControllerConcluirTarefas():
+    def __init__(self, indice,newStats):
+        try:
+            if newStats =="" or newStats == " ":
+                print("Inválido")
+            else:
+                cont=0
+                Lista_id = []
+                for linha in ToDO.ListarTarefa():
+                    cont+=1
+                    if cont > 0:
+
+                        linha = linha('|', 3)
+                        letra = linha[0]
+                        if letra == "\tA":
+                            id = lista[1]
+                            id = int(id)
+                            Lista_id.append(id)
+                    
+                for linha in ToDO.ListarTarefa():
+                    lista = linha.split('|', 3)
+                    tarefa_A = lista[2]
+                    id = lista[1]
+                    letrinha = lista[0]
+                    id = int(id)
+                    if id == Lista_id[indice]:
+                        if letrinha == "\tA":
+                            novatarf = (f"\t{newStats} |\t{id} |\t{tarefa_A}\n")
+                            alterando = ToDO.AlterarTarefa(letrinha, novatarf)
+                            if alterando == True:
+                                print("Tarefa alterada com sucesso!")
+                                break
+                            else:
+                                print("Alteração inválida")
+                        else: 
+                            break
+                    else:
+                        print("Inválido")
+
+
+
+        except Exception as erro:
+            print(erro)
 
 
 
