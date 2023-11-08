@@ -1,4 +1,4 @@
-from dao import*
+from dao import *
 class ToDo():
 
 
@@ -6,16 +6,15 @@ class ToDo():
         add = DaoAdicionarTarefa()
         return add.adicionarTarefa(tarefa, x, status)
 
-    def ExcluirTarefa(self, excluir):
-        #exclude = DaoExcluirTarefa()
-        #return exclude.excluirTarefa(excluir)
-        pass
     def ListarTarefa(self):
         return DaoListarTarefa.listarTarefa()
     
-    def AlterarTarefa(self, tarefa):
+    def AlterarTarefa(self, tarefa_A, tarefa_alterada):
         alt = DaoAlterarTarefas()
-        return alt.alterarTarefa(tarefa)
+        return alt.alterarTarefa(tarefa_A, tarefa_alterada)
+    def ConcluirExcluirTarefa(self,ind,newstats):
+        statss = DaoConExcTarefas()
+        return statss.conExcTarefa(ind,newstats)
 
 
 ToDO = ToDo()

@@ -32,8 +32,7 @@ while sair == 0:
          ListarTarefa = ControllerListarTarefa()
          qual = input("Digite o índice da tarefa que deseja alterar: ")
          novaTarefa = input("Nova tarefa: ")
-
-         alterarTarefa = ControllerAlterarTarefa(qual, novaTarefa)
+         alttarefa = ControllerAlterarTarefa(qual,novaTarefa)
          os.system("pause")
 
         case "4":
@@ -43,7 +42,8 @@ while sair == 0:
          ListarTarefa = ControllerListarTarefa()
          print("Digite o índice da tarefa que deseja marcar como concluída")
          qual = input(">> ")
-         ##ConcluirTarefa = ControllerConcluirTarefa(qual)
+
+         ConcluirTarefa = ControllerConcluirExcluirTarefas(qual,"C")
          os.system("pause")
 
         case "5":
@@ -60,7 +60,7 @@ while sair == 0:
          ListarTarefa = ControllerListarTarefa()
          print("Digite o índice da tarefa que deseja excluir")
          qual = input(">> ")
-         #ConcluirTarefa = ControllerExcluirTarefa(qual)
+         ExcluirTarefa = ControllerConcluirExcluirTarefas(qual,"E")
          os.system("pause")
 
         case "7":
